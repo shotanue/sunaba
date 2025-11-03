@@ -1,3 +1,3 @@
 export const GridCanvas = () => {
-	return <div className="">hello</div>;
+	return <div className="bg-amber-500">hello</div>;
 };
