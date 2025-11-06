@@ -26,25 +26,24 @@
 pnpm i
 ```
 
-## よく使うスクリプト
+## スクリプト（root package.json）
 
-- **Storybook 起動**: apps/storybook
+```bash
+# 開発（各パッケージの dev を監視実行）
+pnpm dev
 
-  ```bash
-  pnpm --filter @sunaba/storybook dev
-  ```
+# ビルド（依存順に build を実行）
+pnpm build
 
-- **components をビルド**: packages/components
+# Lint チェック（Biome）
+pnpm check
 
-  ```bash
-  pnpm --filter @sunaba/components build
-  ```
+# Lint 自動修正（Unsafe を含む）
+pnpm check:fix
 
-- **全体ビルド（依存順）**
-
-  ```bash
-  pnpm build
-  ```
+# テスト
+pnpm test
+```
 
 ## パッケージ概要
 
