@@ -5,11 +5,14 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 const meta = {
   component: Component,
   tags: ["autodocs"],
+  parameters: {
+    layout: "fullscreen",
+  },
   args: {
     value: "console.log(\"Hello, world!\")",
     language: "javascript",
     theme: "vitesse-dark",
-    height: 400,
+    height: "100%",
   },
   argTypes: {
     language: {
@@ -31,7 +34,13 @@ export const Basic: Story = {
   render: (args) => {
     const [code, setCode] = useState<string>(String(args.value ?? ""));
     return (
-      <div style={{ width: 800 }}>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          margin: 0,
+        }}
+      >
         <Component
           {...args}
           value={code}
