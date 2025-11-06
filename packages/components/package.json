@@ -19,6 +19,9 @@
 	"scripts": {
 		"build": "tsup"
 	},
+	"dependencies": {
+		"modern-monaco": "^0.2.2"
+	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "4.1.16",
 		"@types/react": "19.2.0",
