@@ -84,6 +84,9 @@ importers:
       modern-monaco:
         specifier: ^0.2.2
         version: 0.2.2(typescript@5.9.3)
+      monaco-editor:
+        specifier: 0.54.0
+        version: 0.54.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1096,6 +1099,9 @@ packages:
   dom-accessibility-api@0.6.3:
     resolution: {integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==}
 
+  dompurify@3.1.7:
+    resolution: {integrity: sha512-VaTstWtsneJY8xzy7DekmYWEOZcmzIe3Qb3zPd4STve1OBTa+e+WmS1ITQec1fZYXI3HCsOZZiSMpG6oxoWMWQ==}
+
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
@@ -1399,6 +1405,11 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
 
+  marked@14.0.0:
+    resolution: {integrity: sha512-uIj4+faQ+MgHgwUW1l2PsPglZLOLOT1uErt06dAPtx2kjteLAkbsd/0FiYg/MGS+i7ZKLb7w2WClxHkzOOuryQ==}
+    engines: {node: '>= 18'}
+    hasBin: true
+
   min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
@@ -1421,6 +1432,9 @@ packages:
     resolution: {integrity: sha512-kMojNY2r8GvT2p3zylLACa9qyJVWscICHpMj9XY7O2jFB5lYNDXLqsUgVdLpKUlZCxFNLxs220fohrM9xkRdDQ==}
     peerDependencies:
       typescript: '>= 5.0.0'
+
+  monaco-editor@0.54.0:
+    resolution: {integrity: sha512-hx45SEUoLatgWxHKCmlLJH81xBo0uXP4sRkESUpmDQevfi+e7K1VuiSprK6UpQ8u4zOcKNiH0pMvHvlMWA/4cw==}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -2882,6 +2896,8 @@ snapshots:
 
   dom-accessibility-api@0.6.3: {}
 
+  dompurify@3.1.7: {}
+
   eastasianwidth@0.2.0: {}
 
   electron-to-chromium@1.5.240: {}
@@ -3153,6 +3169,8 @@ snapshots:
     dependencies:
       semver: 7.7.3
 
+  marked@14.0.0: {}
+
   min-indent@1.0.1: {}
 
   minimatch@9.0.5:
@@ -3173,6 +3191,11 @@ snapshots:
   modern-monaco@0.2.2(typescript@5.9.3):
     dependencies:
       typescript: 5.9.3
+
+  monaco-editor@0.54.0:
+    dependencies:
+      dompurify: 3.1.7
+      marked: 14.0.0
 
   mrmime@2.0.1: {}
 
