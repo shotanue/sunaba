@@ -23,3 +23,14 @@ export const Primary: Story = {
     seed: 1763280663873,
   },
 };
+
+export const Secondary: Story = {
+  args: {
+    seed: 42,
+    triangleCount: 100,
+    backgroundColor: "#18181b",
+    colorPalette: ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b"],
+    strokeOpacity: 0.15,
+    displacementFactor: 0.9,
+  },
+};
