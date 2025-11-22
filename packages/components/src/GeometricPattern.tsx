@@ -66,19 +66,6 @@ export function GeometricPattern({
 		};
 	}, []);
 
-	useEffect(() => {
-		const canvas = canvasRef.current;
-		if (!canvas || dimensions.width === 0 || dimensions.height === 0) return;
-
-		const ctx = canvas.getContext("2d");
-		if (!ctx) return;
-
-		// Set canvas size
-		canvas.width = dimensions.width;
-		canvas.height = dimensions.height;
-
-		drawPattern(ctx, dimensions.width, dimensions.height);
-	}, [dimensions, drawPattern]);
 
 	const drawPattern = (
 		ctx: CanvasRenderingContext2D,
@@ -197,6 +184,21 @@ export function GeometricPattern({
 
 		return triangles;
 	};
+
+	useEffect(() => {
+		const canvas = canvasRef.current;
+		if (!canvas || dimensions.width === 0 || dimensions.height === 0) return;
+
+		const ctx = canvas.getContext("2d");
+		if (!ctx) return;
+
+		// Set canvas size
+		canvas.width = dimensions.width;
+		canvas.height = dimensions.height;
+
+		drawPattern(ctx, dimensions.width, dimensions.height);
+	}, [dimensions, drawPattern]);
+
 
 	return (
 		<div ref={containerRef} className={`w-full h-full ${className}`}>
