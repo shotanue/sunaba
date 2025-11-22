@@ -18,7 +18,9 @@ runs:
 
     - name: Install Playwright browsers and deps
       shell: bash
-      run: npx playwright install --with-deps
+      run: |
+        cd apps/storybook
+        npx playwright install --with-deps
 
     - name: Check
       shell: bash
