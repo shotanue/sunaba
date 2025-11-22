@@ -1,0 +1,56 @@
+name: Branch Deploy
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  deployments: write
+  contents: write
+  statuses: write
+  actions: write
+  checks: read
+
+jobs:
+  deploy:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Branch Deploy
+        id: branch-deploy
+        uses: github/branch-deploy@v9
+        with:
+          trigger: ".deploy"
+
+      - name: Checkout
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.branch-deploy.outputs.ref }}
+
+      - name: Install pnpm
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        run: pnpm install
+
+      - name: Build Storybook
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        run: pnpm exec turbo build-storybook --filter=@repo/storybook
+
+      - name: Deploy to GitHub Pages
+        if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: apps/storybook/storybook-static
+          branch: gh-pages

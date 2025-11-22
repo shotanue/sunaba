@@ -1,0 +1,15 @@
+name: On PR is ready
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check Codebase
+        uses: ./.github/actions/check-codebase

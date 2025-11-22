@@ -1,0 +1,29 @@
+name: "Check Codebase"
+description: "Runs setup, linting, and testing"
+runs:
+  using: "composite"
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
+
+    - name: Install Playwright browsers
+      shell: bash
+      run: pnpm exec playwright install --with-deps
+
+    - name: Check
+      shell: bash
+      run: pnpm check
+
+    - name: Test
+      shell: bash
+      run: pnpm test

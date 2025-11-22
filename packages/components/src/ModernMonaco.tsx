@@ -1,3 +1,4 @@
+import type * as Monaco from "monaco-editor";
 import { useEffect, useRef } from "react";
 
 export type ModernMonacoProps = {
@@ -21,9 +22,9 @@ export function ModernMonaco({
 	options,
 }: ModernMonacoProps) {
 	const containerRef = useRef<HTMLDivElement | null>(null);
-	const monacoRef = useRef<any>(null);
-	const editorRef = useRef<any>(null);
-	const modelRef = useRef<any>(null);
+	const monacoRef = useRef<typeof Monaco | null>(null);
+	const editorRef = useRef<Monaco.editor.IStandaloneCodeEditor | null>(null);
+	const modelRef = useRef<Monaco.editor.ITextModel | null>(null);
 	const lastValueRef = useRef<string>(value);
 
 	useEffect(() => {
@@ -32,16 +33,16 @@ export function ModernMonaco({
 			const { init } = await import("modern-monaco");
 			const monaco = await init({ theme });
 			if (disposed || !containerRef.current) return;
-			monacoRef.current = monaco;
+			monacoRef.current = monaco as unknown as typeof Monaco;
 
 			const model = monaco.editor.createModel(value, language);
-			modelRef.current = model;
+			modelRef.current = model as unknown as Monaco.editor.ITextModel;
 
 			const editor = monaco.editor.create(containerRef.current, {
 				automaticLayout: true,
 				...options,
 			});
-			editorRef.current = editor;
+			editorRef.current = editor as unknown as Monaco.editor.IStandaloneCodeEditor;
 			editor.setModel(model);
 
 			if (onChange) {
