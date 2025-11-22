@@ -42,7 +42,8 @@ export function ModernMonaco({
 				automaticLayout: true,
 				...options,
 			});
-			editorRef.current = editor as unknown as Monaco.editor.IStandaloneCodeEditor;
+			editorRef.current =
+				editor as unknown as Monaco.editor.IStandaloneCodeEditor;
 			editor.setModel(model);
 
 			if (onChange) {
