@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Storybook
-        run: pnpm --filter @repo/storybook build-storybook
+        run: pnpm exec turbo build-storybook --filter=@repo/storybook
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
