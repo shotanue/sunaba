@@ -1,6 +1,6 @@
 # sunaba
 
-GitHub Pages: https://shotanue.github.io/sunaba
+[View Storybook on GitHub Pages](https://shotanue.github.io/sunaba)
 
 @shotanue のサンドボックス/実験用モノレポです。UI コンポーネントや Storybook を使った検証を行います。
 
