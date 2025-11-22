@@ -19,8 +19,8 @@ runs:
     - name: Install Playwright browsers and deps
       shell: bash
       run: |
-        cd apps/storybook
-        npx playwright install --with-deps
+        sudo ./node_modules/.bin/playwright install-deps
+        ./node_modules/.bin/playwright install
 
     - name: Check
       shell: bash
