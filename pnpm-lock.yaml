@@ -11,6 +11,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.3.0
         version: 2.3.0
+      playwright:
+        specifier: 1.56.1
+        version: 1.56.1
       turbo:
         specifier: 2.5.8
         version: 2.5.8
