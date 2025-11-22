@@ -1,2 +1,36 @@
-node_modules/
-.turbo/
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build Outputs
+dist
+build
+storybook-static
+.next
+.turbo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.env.*
+
+# Editor/OS
+.DS_Store
+.idea
+.vscode
+*.swp
+*.swo
+*.tgz
